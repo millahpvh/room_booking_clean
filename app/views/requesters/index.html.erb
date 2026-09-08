@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1>Requesters</h1>
+
+<div id="requesters">
+  <% @requesters.each do |requester| %>
+    <%= render requester %>
+    <p>
+      <%= link_to "Show this requester", requester %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New requester", new_requester_path %>
