@@ -1,0 +1,43 @@
+<%= form_with(model: reserva) do |form| %>
+  <% if reserva.errors.any? %>
+    <div style="color: red">
+      <h2>Não foi possível salvar esta reserva:</h2>
+
+      <ul>
+        <% reserva.errors.each do |erro| %>
+          <li><%= erro.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :responsavel, "Responsável", style: "display: block" %>
+    <%= form.text_field :responsavel %>
+  </div>
+
+  <div>
+    <%= form.label :assunto, "Assunto", style: "display: block" %>
+    <%= form.text_field :assunto %>
+  </div>
+
+  <div>
+    <%= form.label :inicio, "Início", style: "display: block" %>
+    <%= form.datetime_field :inicio %>
+  </div>
+
+  <div>
+    <%= form.label :fim, "Fim", style: "display: block" %>
+    <%= form.datetime_field :fim %>
+  </div>
+
+  <div>
+    <%= form.label :sala_id, "Sala", style: "display: block" %>
+    <%= form.collection_select :sala_id, Sala.all, :id, :nome,
+          prompt: "Selecione uma sala" %>
+  </div>
+
+  <div>
+    <%= form.submit reserva.persisted? ? "Atualizar reserva" : "Cadastrar reserva" %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @sala %>
+
+<div>
+  <%= link_to "Editar sala", edit_sala_path(@sala) %> |
+  <%= link_to "Voltar para salas", salas_path %>
+
+  <%= button_to "Excluir sala", @sala, method: :delete %>
+</div>

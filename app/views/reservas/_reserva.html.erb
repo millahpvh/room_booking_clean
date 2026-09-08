@@ -1,0 +1,26 @@
+<div id="<%= dom_id reserva %>">
+  <p>
+    <strong>Responsável:</strong>
+    <%= reserva.responsavel %>
+  </p>
+
+  <p>
+    <strong>Assunto:</strong>
+    <%= reserva.assunto %>
+  </p>
+
+  <p>
+    <strong>Início:</strong>
+    <%= reserva.inicio&.strftime("%d/%m/%Y às %H:%M") %>
+  </p>
+
+  <p>
+    <strong>Fim:</strong>
+    <%= reserva.fim&.strftime("%d/%m/%Y às %H:%M") %>
+  </p>
+
+  <p>
+    <strong>Sala:</strong>
+    <%= reserva.sala.nome %>
+  </p>
+</div>

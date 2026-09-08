@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  responsavel: MyString
+  assunto: MyString
+  inicio: 2026-09-08 12:27:07
+  sala: one
+
+two:
+  responsavel: MyString
+  assunto: MyString
+  inicio: 2026-09-08 12:27:07
+  sala: two

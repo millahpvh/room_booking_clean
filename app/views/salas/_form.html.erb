@@ -1,0 +1,32 @@
+<%= form_with(model: sala) do |form| %>
+  <% if sala.errors.any? %>
+    <div style="color: red">
+      <h2>Não foi possível salvar esta sala:</h2>
+
+      <ul>
+        <% sala.errors.each do |erro| %>
+          <li><%= erro.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, "Nome", style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :capacidade, "Capacidade", style: "display: block" %>
+    <%= form.number_field :capacidade %>
+  </div>
+
+  <div>
+    <%= form.label :localizacao, "Localização", style: "display: block" %>
+    <%= form.text_field :localizacao %>
+  </div>
+
+  <div>
+    <%= form.submit sala.persisted? ? "Atualizar sala" : "Cadastrar sala" %>
+  </div>
+<% end %>
