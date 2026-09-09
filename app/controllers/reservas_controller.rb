@@ -25,7 +25,7 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.save
-        format.html { redirect_to @reserva, notice: "Reserva creada com sucesso." }
+        format.html { redirect_to @reserva, notice: "Reserva criada com sucesso." }
         format.json { render :show, status: :created, location: @reserva }
       else
         format.html { render :new, status: :unprocessable_content }

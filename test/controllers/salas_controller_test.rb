@@ -15,13 +15,19 @@ class SalasControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create sala" do
-    assert_difference("Sala.count") do
-      post salas_url, params: { sala: { capacidade: @sala.capacidade, localizacao: @sala.localizacao, nome: @sala.nome } }
-    end
-
-    assert_redirected_to sala_url(Sala.last)
+test "should create sala" do
+  assert_difference("Sala.count") do
+    post salas_url, params: {
+      sala: {
+        nome: "Sala nova",
+        capacidade: 20,
+        localizacao: "2º andar"
+      }
+    }
   end
+
+  assert_redirected_to sala_url(Sala.last)
+end
 
   test "should show sala" do
     get sala_url(@sala)
@@ -34,7 +40,14 @@ class SalasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update sala" do
-    patch sala_url(@sala), params: { sala: { capacidade: @sala.capacidade, localizacao: @sala.localizacao, nome: @sala.nome } }
+    patch sala_url(@sala), params: {
+      sala: {
+        nome: "Sala atualizada",
+        capacidade: 30,
+        localizacao: "3º andar"
+      }
+    }
+
     assert_redirected_to sala_url(@sala)
   end
 
