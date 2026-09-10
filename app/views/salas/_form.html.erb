@@ -1,6 +1,6 @@
-<%= form_with(model: sala) do |form| %>
+<%= form_with(model: sala, class: "formulario") do |form| %>
   <% if sala.errors.any? %>
-    <div style="color: red">
+    <div class="mensagem-erro">
       <h2>Não foi possível salvar esta sala:</h2>
 
       <ul>
@@ -11,22 +11,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nome, "Nome", style: "display: block" %>
+  <div class="campo-formulario">
+    <%= form.label :nome, "Nome" %>
     <%= form.text_field :nome %>
   </div>
 
-  <div>
-    <%= form.label :capacidade, "Capacidade", style: "display: block" %>
+  <div class="campo-formulario">
+    <%= form.label :capacidade, "Capacidade" %>
     <%= form.number_field :capacidade %>
   </div>
 
-  <div>
-    <%= form.label :localizacao, "Localização", style: "display: block" %>
+  <div class="campo-formulario">
+    <%= form.label :localizacao, "Localização" %>
     <%= form.text_field :localizacao %>
   </div>
 
-  <div>
-    <%= form.submit sala.persisted? ? "Atualizar sala" : "Cadastrar sala" %>
+  <div class="acoes-formulario">
+    <%= form.submit(sala.persisted? ? "Atualizar sala" : "Cadastrar sala",
+                    class: "botao botao-primario") %>
   </div>
 <% end %>

@@ -1,16 +1,19 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Reservas" %>
 
-<h1>Reservas</h1>
+<% if notice.present? %>
+  <p class="mensagem-sucesso"><%= notice %></p>
+<% end %>
 
-<div id="reservas">
-  <% @reservas.each do |reserva| %>
-    <%= render reserva %>
-    <p>
-      <%= link_to "Ver reserva", reserva %>
-    </p>
-  <% end %>
+<div class="cabecalho-pagina">
+  <h1>Reservas</h1>
+
+  <%= link_to "Nova reserva",
+              new_reserva_path,
+              class: "botao botao-primario" %>
 </div>
 
-<%= link_to "Nova reserva", new_reserva_path %>
+<div id="reservas" class="lista-registros">
+  <% @reservas.each do |reserva| %>
+  <%= render reserva, mostrar_detalhes: true %>
+<% end %>
+</div>

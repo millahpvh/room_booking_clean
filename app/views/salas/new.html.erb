@@ -1,9 +1,11 @@
+<% content_for :title, "Nova sala" %>
+
 <h1>Nova sala</h1>
 
 <%= render "form", sala: @sala %>
 
-<br>
-
-<div>
-  <%= link_to "Voltar para salas", salas_path %>
+<div class="acoes-pagina">
+  <%= link_to "Cancelar e voltar",
+              salas_path,
+              class: "botao botao-secundario" %>
 </div>

@@ -1,16 +1,19 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Salas" %>
 
-<h1>Salas</h1>
+<% if notice.present? %>
+  <p class="mensagem-sucesso"><%= notice %></p>
+<% end %>
 
-<div id="salas">
-  <% @salas.each do |sala| %>
-    <%= render sala %>
-    <p>
-      <%= link_to "Ver sala", sala %>
-    </p>
-  <% end %>
+<div class="cabecalho-pagina">
+  <h1>Salas</h1>
+
+  <%= link_to "Nova sala",
+              new_sala_path,
+              class: "botao botao-primario" %>
 </div>
 
-<%= link_to "Nova sala", new_sala_path %>
+<div id="salas" class="lista-registros">
+  <% @salas.each do |sala| %>
+    <%= render sala, mostrar_detalhes: true %>
+  <% end %>
+</div>

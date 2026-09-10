@@ -1,10 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Detalhes da reserva" %>
+
+<% if notice.present? %>
+  <p class="mensagem-sucesso"><%= notice %></p>
+<% end %>
+
+<h1>Detalhes da reserva</h1>
 
 <%= render @reserva %>
 
-<div>
-  <%= link_to "Editar reserva", edit_reserva_path(@reserva) %> |
-  <%= link_to "voltar para reservas", reservas_path %>
+<div class="acoes-pagina">
+  <%= link_to "Editar reserva",
+              edit_reserva_path(@reserva),
+              class: "botao botao-primario" %>
 
-  <%= button_to "Excluir reserva", @reserva, method: :delete %>
+  <%= link_to "Voltar para reservas",
+              reservas_path,
+              class: "botao botao-secundario" %>
+
+  <%= button_to "Excluir reserva",
+                @reserva,
+                method: :delete,
+                class: "botao botao-perigo",
+                form: {
+                  data: {
+                    turbo_confirm: "Tem certeza que deseja excluir esta reserva?"
+                  }
+                } %>
 </div>

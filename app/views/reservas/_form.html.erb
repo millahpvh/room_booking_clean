@@ -1,6 +1,6 @@
-<%= form_with(model: reserva) do |form| %>
+<%= form_with(model: reserva, class: "formulario") do |form| %>
   <% if reserva.errors.any? %>
-    <div style="color: red">
+    <div class="mensagem-erro">
       <h2>Não foi possível salvar esta reserva:</h2>
 
       <ul>
@@ -11,33 +11,37 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :responsavel, "Responsável", style: "display: block" %>
+  <div class="campo-formulario">
+    <%= form.label :responsavel, "Responsável" %>
     <%= form.text_field :responsavel %>
   </div>
 
-  <div>
-    <%= form.label :assunto, "Assunto", style: "display: block" %>
+  <div class="campo-formulario">
+    <%= form.label :assunto, "Assunto" %>
     <%= form.text_field :assunto %>
   </div>
 
-  <div>
-    <%= form.label :inicio, "Início", style: "display: block" %>
+  <div class="campo-formulario">
+    <%= form.label :inicio, "Início" %>
     <%= form.datetime_field :inicio %>
   </div>
 
-  <div>
-    <%= form.label :fim, "Fim", style: "display: block" %>
+  <div class="campo-formulario">
+    <%= form.label :fim, "Fim" %>
     <%= form.datetime_field :fim %>
   </div>
 
-  <div>
-    <%= form.label :sala_id, "Sala", style: "display: block" %>
-    <%= form.collection_select :sala_id, Sala.all, :id, :nome,
-          prompt: "Selecione uma sala" %>
+  <div class="campo-formulario">
+    <%= form.label :sala_id, "Sala" %>
+    <%= form.collection_select :sala_id,
+                               Sala.all,
+                               :id,
+                               :nome,
+                               prompt: "Selecione uma sala" %>
   </div>
 
-  <div>
-    <%= form.submit reserva.persisted? ? "Atualizar reserva" : "Cadastrar reserva" %>
+  <div class="acoes-formulario">
+    <%= form.submit(reserva.persisted? ? "Atualizar reserva" : "Cadastrar reserva",
+                    class: "botao botao-primario") %>
   </div>
 <% end %>

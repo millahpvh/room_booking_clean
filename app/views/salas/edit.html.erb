@@ -1,12 +1,11 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Editar sala" %>
 
 <h1>Editar sala</h1>
 
 <%= render "form", sala: @sala %>
 
-<br>
-
-<div>
-  <%= link_to "Ver sala", @sala %> |
-  <%= link_to "Voltar para salas", salas_path %>
+<div class="acoes-pagina">
+  <%= link_to "Cancelar edição",
+              @sala,
+              class: "botao botao-secundario" %>
 </div>

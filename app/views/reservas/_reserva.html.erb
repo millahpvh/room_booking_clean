@@ -23,4 +23,12 @@
     <strong>Sala:</strong>
     <%= reserva.sala.nome %>
   </p>
+
+  <% if local_assigns[:mostrar_detalhes] %>
+    <div class="acoes-card">
+      <%= link_to "Ver detalhes",
+                  reserva,
+                  class: "botao botao-secundario" %>
+    </div>
+  <% end %>
 </div>

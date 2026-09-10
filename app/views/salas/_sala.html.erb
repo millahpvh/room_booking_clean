@@ -14,4 +14,11 @@
     <%= sala.localizacao %>
   </div>
 
+  <% if local_assigns[:mostrar_detalhes] %>
+    <div class="acoes-card">
+      <%= link_to "Ver detalhes",
+                  sala,
+                  class: "botao botao-secundario" %>
+    </div>
+  <% end %>
 </div>

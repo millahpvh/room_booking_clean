@@ -1,10 +1,11 @@
+<% content_for :title, "Editar reserva" %>
+
 <h1>Editar reserva</h1>
 
 <%= render "form", reserva: @reserva %>
 
-<br>
-
-<div>
-  <%= link_to "Ver reserva", @reserva %> |
-  <%= link_to "Voltar para reservas", reservas_path %>
+<div class="acoes-pagina">
+  <%= link_to "Cancelar edição",
+              @reserva,
+              class: "botao botao-secundario" %>
 </div>

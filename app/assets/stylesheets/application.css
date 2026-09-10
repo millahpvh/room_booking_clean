@@ -376,8 +376,174 @@ button:hover {
   object-position: center;
 }
 
+.acoes-card {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #eadde0;
+}
+
 @media (max-width: 700px) {
   .imagem-banner {
     height: 190px;
   }
+}
+
+.cabecalho-pagina {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.cabecalho-pagina h1 {
+  margin: 0;
+}
+
+.lista-registros {
+  display: grid;
+  gap: 28px;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.botao-primario {
+  color: #fffdf9;
+  background-color: #4a1f2d;
+}
+
+.botao-primario:hover {
+  background-color: #7a3548;
+  transform: translateY(-1px);
+}
+
+.botao-secundario {
+  color: #4a1f2d;
+  background-color: #fffdf9;
+  border-color: #7a3548;
+}
+
+.botao-secundario:hover {
+  color: #fffdf9;
+  background-color: #7a3548;
+}
+
+.mensagem-sucesso {
+  padding: 14px 18px;
+  color: #245c3b;
+  background-color: #eaf6ee;
+  border: 1px solid #b9ddc5;
+  border-radius: 9px;
+}
+
+.acoes-pagina {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.acoes-pagina form {
+  margin: 0;
+}
+
+.botao-perigo {
+  color: #ffffff;
+  background-color: #a33a3a;
+  border-color: #a33a3a;
+}
+
+.botao-perigo:hover {
+  background-color: #802c2c;
+  border-color: #802c2c;
+}
+
+.formulario {
+  display: grid;
+  gap: 18px;
+}
+
+.campo-formulario label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #4a1f2d;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d8c8c3;
+  border-radius: 9px;
+  background-color: #fffdf9;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+  border-color: #7a3548;
+  outline: 3px solid rgba(122, 53, 72, 0.14);
+}
+
+.mensagem-erro {
+  padding: 18px;
+  color: #8b2424;
+  background-color: #fff0f0;
+  border: 1px solid #e7b7b7;
+  border-radius: 9px;
+}
+
+.mensagem-erro h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.mensagem-erro ul {
+  margin-bottom: 0;
+}
+
+.acoes-formulario {
+  margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+  .cabecalho-pagina {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cabecalho-pagina .botao,
+  .acoes-card .botao {
+   width: 100%;
+  }
+
+  .acoes-pagina {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .acoes-pagina .botao,
+  .acoes-pagina form {
+    width: 100%;
+  }
+
+  .acoes-formulario .botao {
+    width: 100%;
+}
 }
