@@ -547,3 +547,17 @@ button:hover {
     width: 100%;
 }
 }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.logo-imagem {
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
