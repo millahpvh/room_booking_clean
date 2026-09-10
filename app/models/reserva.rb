@@ -1,20 +1,7 @@
 class Reserva < ApplicationRecord
   belongs_to :sala
 
-  validates :responsavel,
-            presence: { message: "não pode ficar em branco" }
-
-  validates :assunto,
-            presence: { message: "não pode ficar em branco" }
-
-  validates :inicio,
-            presence: { message: "não pode ficar em branco" }
-
-  validates :fim,
-            presence: { message: "não pode ficar em branco" }
-
-  validates :sala,
-            presence: { message: "deve ser selecionada" }
+  validates :responsavel, :assunto, :inicio, :fim, presence: true
 
   validate :fim_deve_ser_posterior_ao_inicio
   validate :sala_deve_estar_disponivel
@@ -24,9 +11,7 @@ class Reserva < ApplicationRecord
   def fim_deve_ser_posterior_ao_inicio
     return if inicio.blank? || fim.blank?
 
-    if fim <= inicio
-      errors.add(:fim, "deve ser posterior ao início")
-    end
+    errors.add(:fim, :posterior_ao_inicio) if fim <= inicio
   end
 
   def sala_deve_estar_disponivel
@@ -38,8 +23,6 @@ class Reserva < ApplicationRecord
       .where("inicio < ? AND fim > ?", fim, inicio)
       .exists?
 
-    if existe_conflito
-      errors.add(:base, "A sala já está reservada nesse horário")
-    end
+    errors.add(:base, :horario_indisponivel) if existe_conflito
   end
 end

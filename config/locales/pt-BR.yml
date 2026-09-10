@@ -1,0 +1,38 @@
+pt-BR:
+  activerecord:
+    models:
+      sala: "Sala"
+      reserva: "Reserva"
+
+    attributes:
+      sala:
+        nome: "Nome"
+        capacidade: "Capacidade"
+        localizacao: "Localização"
+
+      reserva:
+        responsavel: "Responsável"
+        assunto: "Assunto"
+        inicio: "Início"
+        fim: "Fim"
+        sala: "Sala"
+
+    errors:
+      models:
+        reserva:
+          attributes:
+            fim:
+              posterior_ao_inicio: "deve ser posterior ao início"
+            base:
+              horario_indisponivel: "A sala já está reservada nesse horário"
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages:
+      blank: "não pode ficar em branco"
+      taken: "já está em uso"
+      required: "deve ser selecionada"
+      not_a_number: "deve ser um número"
+      not_an_integer: "deve ser um número inteiro"
+      greater_than: "deve ser maior que %{count}"

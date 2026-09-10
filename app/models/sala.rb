@@ -2,21 +2,16 @@ class Sala < ApplicationRecord
   has_many :reservas, dependent: :destroy
 
   validates :nome,
-            presence: { message: "não pode ficar em branco" },
-            uniqueness: {
-              case_sensitive: false,
-              message: "já está em uso"
-            }
+            presence: true,
+            uniqueness: { case_sensitive: false }
 
   validates :capacidade,
-            presence: { message: "não pode ficar em branco" },
+            presence: true,
             numericality: {
               only_integer: true,
               greater_than: 0,
-              allow_nil: true,
-              message: "deve ser um número inteiro maior que zero"
+              allow_nil: true
             }
 
-  validates :localizacao,
-            presence: { message: "não pode ficar em branco" }
+  validates :localizacao, presence: true
 end
