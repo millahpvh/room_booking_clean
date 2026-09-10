@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "inicio#index"
   resources :reservas
   resources :salas
   resources :requesters

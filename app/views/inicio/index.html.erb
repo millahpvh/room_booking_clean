@@ -1,0 +1,74 @@
+<section class="banner-inicio">
+  <%= image_tag "reuniao-seduc.png",
+        alt: "Equipe da SEDUC participando de uma reunião",
+        class: "imagem-banner" %>
+</section>
+
+<section class="boas-vindas">
+  <div>
+    
+    <h1>Bem-vindo à Agenda de Reuniões</h1>
+    <p>
+      Consulte os próximos compromissos e reserve uma sala
+      de forma rápida e segura.
+    </p>
+  </div>
+
+  <div class="acoes-inicio">
+    <%= link_to "Nova reserva", new_reserva_path, class: "botao-principal" %>
+    <%= link_to "Cadastrar sala", new_sala_path, class: "botao-secundario" %>
+  </div>
+</section>
+
+<section class="resumo">
+  <article class="cartao-resumo">
+    <span>Salas cadastradas</span>
+    <strong><%= @total_salas %></strong>
+    <%= link_to "Ver salas", salas_path %>
+  </article>
+
+  <article class="cartao-resumo">
+    <span>Reservas cadastradas</span>
+    <strong><%= @total_reservas %></strong>
+    <%= link_to "Ver reservas", reservas_path %>
+  </article>
+</section>
+
+<section class="proximas-reunioes">
+  <div class="titulo-secao">
+    <h2>Próximas reuniões</h2>
+    <%= link_to "Ver todas", reservas_path %>
+  </div>
+
+  <% if @proximas_reservas.any? %>
+    <div class="lista-reunioes">
+      <% @proximas_reservas.each do |reserva| %>
+        <article class="reuniao">
+          <div class="data-reuniao">
+            <strong><%= reserva.inicio.strftime("%d") %></strong>
+            <span><%= reserva.inicio.strftime("%m/%Y") %></span>
+          </div>
+
+          <div class="dados-reuniao">
+            <h3><%= reserva.assunto %></h3>
+            <p>
+              <%= reserva.inicio.strftime("%H:%M") %> às
+              <%= reserva.fim.strftime("%H:%M") %>
+            </p>
+            <p>
+              <%= reserva.sala.nome %> •
+              <%= reserva.responsavel %>
+            </p>
+          </div>
+
+          <%= link_to "Detalhes", reserva, class: "link-detalhes" %>
+        </article>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="sem-reunioes">
+      <p>Nenhuma reunião futura agendada.</p>
+      <%= link_to "Criar a primeira reserva", new_reserva_path %>
+    </div>
+  <% end %>
+</section>

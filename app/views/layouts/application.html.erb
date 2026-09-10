@@ -24,6 +24,21 @@
   </head>
 
   <body>
+  <header class="topo">
+    <div class="container navegacao">
+      <%= link_to "Agenda de Reuniões", root_path, class: "logo" %>
+
+      <nav class="menu">
+        <%= link_to "Início", root_path %>
+        <%= link_to "Salas", salas_path %>
+        <%= link_to "Reservas", reservas_path %>
+        <%= link_to "Nova reserva", new_reserva_path, class: "botao-menu" %>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container conteudo">
     <%= yield %>
-  </body>
+  </main>
+</body>
 </html>
