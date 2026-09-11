@@ -31,12 +31,23 @@
   <span>Agenda de Reuniões</span>
 <% end %>
 
-      <nav class="menu">
-        <%= link_to "Início", root_path %>
-        <%= link_to "Salas", salas_path %>
-        <%= link_to "Reservas", reservas_path %>
-        <%= link_to "Nova reserva", new_reserva_path, class: "botao-menu" %>
-      </nav>
+      <nav class="menu menu-desktop">
+  <%= link_to "Início", root_path %>
+  <%= link_to "Salas", salas_path %>
+  <%= link_to "Reservas", reservas_path %>
+  <%= link_to "Nova reserva", new_reserva_path, class: "botao-menu" %>
+</nav>
+
+<details class="menu-mobile">
+  <summary>Menu</summary>
+
+  <nav class="menu-mobile-links">
+    <%= link_to "Início", root_path %>
+    <%= link_to "Salas", salas_path %>
+    <%= link_to "Reservas", reservas_path %>
+    <%= link_to "Nova reserva", new_reserva_path %>
+  </nav>
+</details>
     </div>
   </header>
 
