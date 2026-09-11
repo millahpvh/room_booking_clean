@@ -17,6 +17,7 @@ module RoomBookingClean
     config.autoload_lib(ignore: %w[assets tasks])
     config.i18n.default_locale = :"pt-BR"
     config.i18n.available_locales = [ :"pt-BR" ]
+    config.time_zone = "America/Porto_Velho"
 
     # Configuration for the application, engines, and railties goes here.
     #

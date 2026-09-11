@@ -683,6 +683,20 @@ button:hover {
   margin-top: 0;
 }
 
+.barra-atualizacao {
+  margin-top: 16px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: #746965;
+  background-color: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
 @media (max-width: 700px) {
   .painel-indicadores {
     margin-block: 20px;
@@ -695,4 +709,14 @@ button:hover {
   .indicador-dashboard strong {
     font-size: 28px;
   }
+
+.barra-atualizacao {
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.barra-atualizacao .botao {
+  width: 100%;
+}
+
 }
