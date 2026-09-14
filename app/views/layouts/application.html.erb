@@ -3,6 +3,8 @@
   <head>
     <title><%= content_for?(:title) ? "#{content_for(:title)} | Agenda de Reuniões — SEDUC" : "Agenda de Reuniões — SEDUC" %></title>
     <%= favicon_link_tag "logo-agenda.svg", type: "image/svg+xml" %>
+    <link rel="apple-touch-icon" href="/pwa-icon-192.png">
+    <meta name="theme-color" content="#4A1F2D">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Agenda de Reuniões — SEDUC">
@@ -13,7 +15,7 @@
     <%= yield :head %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+    <%= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>

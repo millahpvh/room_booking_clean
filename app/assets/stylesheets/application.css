@@ -479,6 +479,8 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
   transition: 0.2s ease;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 .botao-primario {
