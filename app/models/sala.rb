@@ -1,5 +1,5 @@
 class Sala < ApplicationRecord
-  has_many :reservas, dependent: :destroy
+  has_many :reservas, dependent: :restrict_with_error
 
   validates :nome,
             presence: true,

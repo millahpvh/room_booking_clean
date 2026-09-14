@@ -49,13 +49,23 @@ class SalasController < ApplicationController
 
   # DELETE /salas/1 or /salas/1.json
   def destroy
-    @sala.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to salas_path, notice: "Sala excluída com sucesso.", status: :see_other }
-      format.json { head :no_content }
+    if @sala.destroy
+      respond_to do |format|
+        format.html { redirect_to salas_path, notice: "Sala excluída com sucesso.", status: :see_other }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html do
+          redirect_to sala_path(@sala),
+                      alert: "Não é possível excluir uma sala que possui reservas.",
+                      status: :see_other
+        end
+        format.json { render json: @sala.errors, status: 422 }
+      end
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

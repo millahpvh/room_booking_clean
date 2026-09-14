@@ -51,11 +51,31 @@ end
     assert_redirected_to sala_url(@sala)
   end
 
-  test "should destroy sala" do
-    assert_difference("Sala.count", -1) do
-      delete sala_url(@sala)
-    end
+ test "should destroy sala without reservations" do
+  sala_sem_reservas = Sala.create!(
+    nome: "Sala sem reservas",
+    capacidade: 10,
+    localizacao: "Primeiro andar"
+  )
 
-    assert_redirected_to salas_url
+  assert_difference("Sala.count", -1) do
+    delete sala_url(sala_sem_reservas)
   end
+
+  assert_redirected_to salas_url
+end
+
+test "should not destroy sala with reservations" do
+  assert_no_difference("Sala.count") do
+    delete sala_url(@sala)
+  end
+
+  assert_redirected_to sala_url(@sala)
+
+  follow_redirect!
+  assert_select ".mensagem-erro",
+                text: "Não é possível excluir uma sala que possui reservas."
+
+  assert Reserva.exists?(reservas(:one).id)
+end
 end

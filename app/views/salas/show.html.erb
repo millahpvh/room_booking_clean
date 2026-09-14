@@ -4,6 +4,10 @@
   <p class="mensagem-sucesso"><%= notice %></p>
 <% end %>
 
+<% if alert.present? %>
+  <p class="mensagem-erro"><%= alert %></p>
+<% end %>
+
 <h1>Detalhes da sala</h1>
 
 <%= render @sala %>
