@@ -40,21 +40,20 @@
   <%= link_to "Nova reserva", new_reserva_path, class: "botao-menu" %>
 </nav>
 
-<details class="menu-mobile">
-  <summary>Menu</summary>
 
-  <nav class="menu-mobile-links">
-    <%= link_to "Início", root_path %>
-    <%= link_to "Salas", salas_path %>
-    <%= link_to "Reservas", reservas_path %>
-    <%= link_to "Nova reserva", new_reserva_path %>
-  </nav>
-</details>
     </div>
   </header>
 
   <main class="container conteudo">
     <%= yield %>
   </main>
+
+<nav class="menu-inferior" aria-label="Navegação principal no celular">
+  <%= link_to "Início", root_path %>
+  <%= link_to "Salas", salas_path %>
+  <%= link_to "Reservas", reservas_path %>
+  <%= link_to "Nova", new_reserva_path %>
+</nav>
+
 </body>
 </html>
