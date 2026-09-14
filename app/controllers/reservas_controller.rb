@@ -65,6 +65,16 @@ class ReservasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reserva_params
-     params.expect(reserva: [ :responsavel, :assunto, :inicio, :fim, :sala_id ])
-    end
+    params.expect(
+      reserva: [
+        :responsavel,
+        :assunto,
+        :inicio,
+        :fim,
+        :sala_id,
+        :participantes,
+        :observacoes
+      ]
+    )
+  end
 end

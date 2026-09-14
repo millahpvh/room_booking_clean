@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_08_163330) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_14_132152) do
   create_table "requesters", force: :cascade do |t|
     t.boolean "active"
     t.datetime "created_at", null: false
@@ -26,6 +26,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_08_163330) do
     t.datetime "created_at", null: false
     t.datetime "fim"
     t.datetime "inicio"
+    t.text "observacoes"
+    t.text "participantes"
     t.string "responsavel"
     t.integer "sala_id", null: false
     t.datetime "updated_at", null: false

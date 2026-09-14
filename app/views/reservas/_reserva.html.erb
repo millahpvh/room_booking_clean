@@ -24,6 +24,22 @@
     <%= reserva.sala.nome %>
   </p>
 
+<% if local_assigns[:exibir_campos_extras] %>
+  <% if reserva.participantes.present? %>
+    <div class="detalhe-adicional">
+      <strong>Participantes:</strong>
+      <%= simple_format(reserva.participantes) %>
+    </div>
+  <% end %>
+
+  <% if reserva.observacoes.present? %>
+    <div class="detalhe-adicional">
+      <strong>Observações:</strong>
+      <%= simple_format(reserva.observacoes) %>
+    </div>
+  <% end %>
+<% end %>
+
   <% if local_assigns[:mostrar_detalhes] %>
     <div class="acoes-card">
       <%= link_to "Ver detalhes",

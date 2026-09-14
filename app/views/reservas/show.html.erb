@@ -6,7 +6,8 @@
 
 <h1>Detalhes da reserva</h1>
 
-<%= render @reserva %>
+<%= render partial: "reserva",
+           locals: { reserva: @reserva, exibir_campos_extras: true } %>
 
 <div class="acoes-pagina">
   <%= link_to "Editar reserva",

@@ -548,7 +548,8 @@ button:hover {
 }
 
 .campo-formulario input,
-.campo-formulario select {
+.campo-formulario select,
+.campo-formulario textarea {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid #d8c8c3;
@@ -559,7 +560,8 @@ button:hover {
 }
 
 .campo-formulario input:focus,
-.campo-formulario select:focus {
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
   border-color: #7a3548;
   outline: 3px solid rgba(122, 53, 72, 0.14);
 }
