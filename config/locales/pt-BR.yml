@@ -25,8 +25,10 @@ pt-BR:
           attributes:
             inicio:
               no_passado: "não pode estar no passado"
+              muito_distante: "não pode ultrapassar 2 anos de antecedência"
             fim:
               posterior_ao_inicio: "deve ser posterior ao início"
+              muito_distante: "não pode ultrapassar 2 anos de antecedência"
             participantes:
               excedem_capacidade: "excedem a capacidade da sala, que comporta %{capacidade} pessoas"
             base:

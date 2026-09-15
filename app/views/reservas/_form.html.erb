@@ -1,3 +1,5 @@
+<% limite_agendamento = 2.years.from_now.strftime("%Y-%m-%dT%H:%M") %>
+
 <%= form_with(model: reserva, class: "formulario") do |form| %>
   <% if reserva.errors.any? %>
     <div class="mensagem-erro">
@@ -22,15 +24,17 @@
   </div>
 
   <div class="campo-formulario">
-    <%= form.label :inicio, "Início" %>
-    <%= form.datetime_field :inicio,
-                        min: (Time.current.strftime("%Y-%m-%dT%H:%M") if reserva.new_record?) %>
-  </div>
+  <%= form.label :inicio, "Início" %>
+  <%= form.datetime_field :inicio,
+                          min: (Time.current.strftime("%Y-%m-%dT%H:%M") if reserva.new_record?),
+                          max: limite_agendamento %>
+</div>
 
-  <div class="campo-formulario">
-    <%= form.label :fim, "Fim" %>
-    <%= form.datetime_field :fim %>
-  </div>
+ <div class="campo-formulario">
+  <%= form.label :fim, "Fim" %>
+  <%= form.datetime_field :fim,
+                          max: limite_agendamento %>
+</div>
 
   <div class="campo-formulario">
     <%= form.label :sala_id, "Sala" %>

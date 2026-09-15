@@ -38,4 +38,22 @@ class ReservaTest < ActiveSupport::TestCase
       "excedem a capacidade da sala, que comporta 2 pessoas"
     )
   end
+
+  test "não permite reserva com mais de dois anos de antecedência" do
+    inicio = 3.years.from_now
+
+    reserva = Reserva.new(
+      responsavel: "Rômulo",
+      assunto: "Reunião no futuro distante",
+      inicio: inicio,
+      fim: inicio + 1.hour,
+      sala: salas(:one)
+    )
+
+    assert_not reserva.valid?
+    assert_includes(
+      reserva.errors[:inicio],
+      "não pode ultrapassar 2 anos de antecedência"
+    )
+  end
 end

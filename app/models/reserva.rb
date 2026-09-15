@@ -2,10 +2,12 @@ class Reserva < ApplicationRecord
   belongs_to :sala
 
   validates :responsavel, :assunto, :inicio, :fim, presence: true
+
   validate :fim_deve_ser_posterior_ao_inicio
   validate :sala_deve_estar_disponivel
   validate :inicio_nao_pode_estar_no_passado, if: :will_save_change_to_inicio?
   validate :participantes_nao_podem_exceder_capacidade
+  validate :datas_nao_podem_ultrapassar_limite, if: :inicio_ou_fim_foram_alterados?
 
   private
 
@@ -45,5 +47,16 @@ class Reserva < ApplicationRecord
         capacidade: sala.capacidade
       )
     end
+  end
+
+  def inicio_ou_fim_foram_alterados?
+    will_save_change_to_inicio? || will_save_change_to_fim?
+  end
+
+  def datas_nao_podem_ultrapassar_limite
+    limite = 2.years.from_now
+
+    errors.add(:inicio, :muito_distante) if inicio.present? && inicio > limite
+    errors.add(:fim, :muito_distante) if fim.present? && fim > limite
   end
 end
