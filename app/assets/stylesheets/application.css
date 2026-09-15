@@ -731,6 +731,25 @@ button:hover {
   display: none;
 }
 
+.estado-vazio {
+  padding: 40px 24px;
+  border: 1px solid #eadde1;
+  border-radius: 14px;
+  background-color: #fffdf9;
+  box-shadow: 0 8px 20px rgb(74 31 45 / 8%);
+  text-align: center;
+}
+
+.estado-vazio h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.estado-vazio p {
+  margin: 0 0 24px;
+  color: #6f6266;
+}
+
 @media (max-width: 767px) {
 
   .acoes-formulario {

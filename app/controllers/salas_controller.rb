@@ -3,7 +3,7 @@ class SalasController < ApplicationController
 
   # GET /salas or /salas.json
   def index
-    @salas = Sala.all
+  @salas = Sala.order(nome: :asc)
   end
 
   # GET /salas/1 or /salas/1.json

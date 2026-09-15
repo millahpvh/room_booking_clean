@@ -3,7 +3,7 @@ class ReservasController < ApplicationController
 
   # GET /reservas or /reservas.json
   def index
-    @reservas = Reserva.all
+    @reservas = Reserva.order(inicio: :asc)
   end
 
   # GET /reservas/1 or /reservas/1.json
@@ -57,14 +57,15 @@ class ReservasController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reserva
-      @reserva = Reserva.find(params.expect(:id))
-    end
+    private
 
-    # Only allow a list of trusted parameters through.
-    def reserva_params
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reserva
+    @reserva = Reserva.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def reserva_params
     params.expect(
       reserva: [
         :responsavel,

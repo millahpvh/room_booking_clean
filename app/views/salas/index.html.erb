@@ -12,8 +12,19 @@
               class: "botao botao-primario" %>
 </div>
 
-<div id="salas" class="lista-registros">
-  <% @salas.each do |sala| %>
-    <%= render sala, mostrar_detalhes: true %>
-  <% end %>
-</div>
+<% if @salas.any? %>
+  <div id="salas" class="lista-registros">
+    <% @salas.each do |sala| %>
+      <%= render sala, mostrar_detalhes: true %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="estado-vazio">
+    <h2>Nenhuma sala cadastrada</h2>
+    <p>Cadastre uma sala antes de criar as primeiras reservas.</p>
+
+    <%= link_to "Cadastrar primeira sala",
+                new_sala_path,
+                class: "botao botao-primario" %>
+  </div>
+<% end %>

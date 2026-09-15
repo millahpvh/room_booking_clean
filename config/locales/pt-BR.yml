@@ -16,13 +16,19 @@ pt-BR:
         inicio: "Início"
         fim: "Fim"
         sala: "Sala"
+        participantes: "Participantes"
+        observacoes: "Observações"
 
     errors:
       models:
         reserva:
           attributes:
+            inicio:
+              no_passado: "não pode estar no passado"
             fim:
               posterior_ao_inicio: "deve ser posterior ao início"
+            participantes:
+              excedem_capacidade: "excedem a capacidade da sala, que comporta %{capacidade} pessoas"
             base:
               horario_indisponivel: "A sala já está reservada nesse horário"
 

@@ -12,8 +12,19 @@
               class: "botao botao-primario" %>
 </div>
 
-<div id="reservas" class="lista-registros">
-  <% @reservas.each do |reserva| %>
-   <%= render reserva, mostrar_detalhes: true %>
-  <% end %>
-</div>
+<% if @reservas.any? %>
+  <div id="reservas" class="lista-registros">
+    <% @reservas.each do |reserva| %>
+      <%= render reserva, mostrar_detalhes: true %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="estado-vazio">
+    <h2>Nenhuma reserva cadastrada</h2>
+    <p>Cadastre uma reserva para começar a organizar as reuniões.</p>
+
+    <%= link_to "Cadastrar primeira reserva",
+                new_reserva_path,
+                class: "botao botao-primario" %>
+  </div>
+<% end %>
