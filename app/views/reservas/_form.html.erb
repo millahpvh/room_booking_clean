@@ -41,21 +41,25 @@
   </div>
 
   <div class="campo-formulario">
-  <%= form.label :participantes, "Participantes (opcional)" %>
-  <%= form.text_area :participantes,
-                     rows: 4,
-                     placeholder: "Digite um nome por linha" %>
-</div>
+    <%= form.label :participantes, "Participantes (opcional)" %>
+    <%= form.text_area :participantes,
+                       rows: 4,
+                       placeholder: "Digite um nome por linha" %>
+  </div>
 
-<div class="campo-formulario">
-  <%= form.label :observacoes, "Observações (opcional)" %>
-  <%= form.text_area :observacoes,
-                     rows: 4,
-                     placeholder: "Ex.: levar projetor ou reunião híbrida" %>
-</div>
+  <div class="campo-formulario">
+    <%= form.label :observacoes, "Observações (opcional)" %>
+    <%= form.text_area :observacoes,
+                       rows: 4,
+                       placeholder: "Ex.: levar projetor ou reunião híbrida" %>
+  </div>
 
   <div class="acoes-formulario">
     <%= form.submit(reserva.persisted? ? "Atualizar reserva" : "Cadastrar reserva",
                     class: "botao botao-primario") %>
+
+    <%= link_to reserva.persisted? ? "Cancelar edição" : "Cancelar e voltar",
+                reserva.persisted? ? reserva_path(reserva) : reservas_path,
+                class: "botao botao-secundario" %>
   </div>
 <% end %>
