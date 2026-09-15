@@ -33,9 +33,21 @@
   <% end %>
 
   <%= link_to reservas_path, class: "indicador-dashboard" do %>
-    <span>Reservas</span>
+    <span>Total de reservas</span>
     <strong><%= @total_reservas %></strong>
     <small>cadastradas</small>
+  <% end %>
+
+  <%= link_to reservas_path, class: "indicador-dashboard" do %>
+    <span>Reservas hoje</span>
+    <strong><%= @reservas_hoje %></strong>
+    <small>agendadas</small>
+  <% end %>
+
+  <%= link_to reservas_path, class: "indicador-dashboard" do %>
+    <span>Próximas reservas</span>
+    <strong><%= @reservas_futuras %></strong>
+    <small>agendadas</small>
   <% end %>
 </section>
 

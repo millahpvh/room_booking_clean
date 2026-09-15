@@ -38,7 +38,12 @@ body {
 }
 
 .topo {
-  background: var(--azul-escuro);
+  background: linear-gradient(
+    110deg,
+    #35101d 0%,
+    #5b2035 48%,
+    #91415b 100%
+  );
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
 }
 
@@ -258,7 +263,12 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  background: linear-gradient(135deg, var(--azul-escuro), #703348);
+  background: linear-gradient(
+  90deg,
+  #4a1f2d 0%,
+  #61263a 50%,
+  #7d3850 100%
+);
   color: var(--branco);
   border-radius: 18px;
   box-shadow: 0 10px 30px rgb(74 31 45 / 18%);
@@ -637,7 +647,9 @@ button:hover {
   border: 1px solid var(--borda);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 5px 18px rgb(48 42 39 / 7%);
+  box-shadow:
+  0 12px 32px rgb(112 51 72 / 14%),
+  0 3px 10px rgb(48 42 39 / 6%);
 }
 
 .indicador-dashboard {
@@ -649,8 +661,12 @@ button:hover {
   transition: background-color 0.2s ease;
 }
 
-.indicador-dashboard + .indicador-dashboard {
+.indicador-dashboard:nth-child(even) {
   border-left: 1px solid var(--borda);
+}
+
+.indicador-dashboard:nth-child(n + 3) {
+  border-top: 1px solid var(--borda);
 }
 
 .indicador-dashboard:hover {
@@ -784,7 +800,12 @@ button:hover {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 4px;
     padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
-    background: var(--azul-escuro);
+    background: linear-gradient(
+  110deg,
+  #35101d 0%,
+  #5b2035 48%,
+  #91415b 100%
+);
     box-shadow: 0 -4px 16px rgb(74 31 45 / 15%);
   }
 
