@@ -27,7 +27,11 @@
   </div>
 
   <div class="acoes-formulario">
-    <%= form.submit(sala.persisted? ? "Atualizar sala" : "Cadastrar sala",
-                    class: "botao botao-primario") %>
-  </div>
+  <%= form.submit(sala.persisted? ? "Atualizar sala" : "Cadastrar sala",
+                  class: "botao botao-primario") %>
+
+  <%= link_to sala.persisted? ? "Cancelar edição" : "Cancelar e voltar",
+              sala.persisted? ? sala_path(sala) : salas_path,
+              class: "botao botao-secundario" %>
+</div>
 <% end %>

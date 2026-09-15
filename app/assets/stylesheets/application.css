@@ -733,6 +733,12 @@ button:hover {
 
 @media (max-width: 767px) {
 
+  .acoes-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
   .menu-desktop {
     display: none;
   }
